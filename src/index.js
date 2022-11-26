@@ -1,7 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createStore } from 'redux';
+
 import './index.css';
 import App from './components/App';
+import movies from './reducers';
+
+
+
+const store = createStore(movies);
+console.log('Store is here' , store);
+console.log('State with 0 size movies array of reducer is here : ' , store.getState());
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
