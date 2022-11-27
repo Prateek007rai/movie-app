@@ -10,14 +10,21 @@ import movies from './reducers';
 
 const store = createStore(movies);
 console.log('Store is here' , store);
-console.log('State with 0 size movies array of reducer is here : ' , store.getState());
+// console.log('State with 0 size movies array of reducer is here before sending action : ' , store.getState());
 
+
+// store.dispatch({                                                       //action passed into it.
+//   type:'ADD_MOVIES',
+//   movies: [{name: 'Superman'}]
+// });
+
+// console.log('State with 0 size movies array of reducer is here after sending action : ' , store.getState());
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App store={store} />
   </React.StrictMode>
 );
 
