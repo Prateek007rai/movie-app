@@ -1,11 +1,29 @@
-import { ADD_MOVIES, ADD_TO_FAVOURITES , REMOVE_FROM_FAVOURITES ,SET_SHOW_FAVOURITES } from '../actions'
+import { combineReducers } from 'redux';
+import { ADD_MOVIES,
+     ADD_TO_FAVOURITES , 
+     REMOVE_FROM_FAVOURITES ,
+     SET_SHOW_FAVOURITES } 
+     from '../actions'
 
+
+//store structure or model     
 const initialMoviesState = {
     list: [],
     favourites: [],
     showFavourites: false
 }
-export default function movies (state = initialMoviesState , action){
+
+const initialSearchState ={
+    result: {}
+}
+
+const initialRootState = {
+    movies: initialMoviesState,
+    search: initialSearchState
+}
+
+
+export function movies (state = initialMoviesState , action){
     // if(action.type === ADD_MOVIES){
     //     return {
     //         ...state ,                                           //this line will form a new object with this new list array value
@@ -44,3 +62,23 @@ export default function movies (state = initialMoviesState , action){
     }
 }
 
+
+//search reducer
+export function search (state = initialSearchState , action){
+    return state;
+}
+
+
+//Root reducer
+// export default function rootReducer (state = initialRootState , action){
+//     return {
+//         movies: movies(state.movies,action),                                                  //user: userReducer(state.value, action);
+//         search: search(state.search,action)
+//     };
+// }
+
+
+export default combineReducers({                                //this combineReducers method provide by redux so we dont need of rootreducers
+    movies: movies,
+    search: search
+})

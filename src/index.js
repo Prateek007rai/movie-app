@@ -4,11 +4,11 @@ import { createStore } from 'redux';
 
 import './index.css';
 import App from './components/App';
-import movies from './reducers';
+import rootReducer from './reducers';
 
 
 
-const store = createStore(movies);
+const store = createStore(rootReducer);
 console.log('Store is here' , store);
 // console.log('State with 0 size movies array of reducer is here before sending action : ' , store.getState());
 
